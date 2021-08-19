@@ -69,7 +69,8 @@ namespace RTAManager.src.api
         
         public static string webRequest(NameValueCollection param)   //webへのアクセス
         {
-            string url = "https://script.google.com/macros/s/AKfycbzKimFeW3sMUAdzJsxEb9py9bB90ZX9jJe27AehyIqKmj6RALHZbLBFlUbOdyW6ZAEgZg/exec";
+            /*string url = "https://script.google.com/macros/s/AKfycbzDWVkXEjSqpJzE-cwBiaG6504uCJyymCGI00rrhjSXsxGA5-imaQOi0J8M9if1CiTi/exec";*/ //本番環境です
+            string url = "https://script.google.com/macros/s/AKfycbzKimFeW3sMUAdzJsxEb9py9bB90ZX9jJe27AehyIqKmj6RALHZbLBFlUbOdyW6ZAEgZg/exec";  //テスト環境です
             WebClient wc = new WebClient();
             wc.Encoding = System.Text.Encoding.UTF8;
             byte[] resBytes;
