@@ -10,7 +10,8 @@ namespace RTAManager.src.api
 {
     class ConAPI
     {
-        public static string getRecord()//レコード取得
+        //レコード取得
+        public static string getRecord()
         {
             string record;
             NameValueCollection request = new NameValueCollection();
@@ -19,8 +20,9 @@ namespace RTAManager.src.api
             record = webRequest(request);
             return record;
         }
-        
-        public static string getTags()//タグ取得
+
+        //タグ取得
+        public static string getTags()
         {
             string tags;
             NameValueCollection request = new NameValueCollection();
@@ -30,7 +32,8 @@ namespace RTAManager.src.api
             return tags;
         }
 
-        public static void addRecord(Record newRecord)//レコード追加
+        //レコード追加
+        public static void addRecord(Record newRecord)
         {
             string score, tag="", name, when, comment;
             
@@ -58,7 +61,8 @@ namespace RTAManager.src.api
             webRequest(request);
         }
 
-        public static void addTags(string newTag)//タグ追加
+        //タグ追加
+        public static void addTags(string newTag)
         {
             NameValueCollection request = new NameValueCollection();
             request.Add("req", "aT");
@@ -66,8 +70,9 @@ namespace RTAManager.src.api
             
             webRequest(request);
         }
-        
-        public static string webRequest(NameValueCollection param)   //webへのアクセス
+
+        /*webへのアクセス*/
+        public static string webRequest(NameValueCollection param)
         {
             /*string url = "https://script.google.com/macros/s/AKfycbzDWVkXEjSqpJzE-cwBiaG6504uCJyymCGI00rrhjSXsxGA5-imaQOi0J8M9if1CiTi/exec";*/ //本番環境です
             string url = "https://script.google.com/macros/s/AKfycbzKimFeW3sMUAdzJsxEb9py9bB90ZX9jJe27AehyIqKmj6RALHZbLBFlUbOdyW6ZAEgZg/exec";  //テスト環境です
