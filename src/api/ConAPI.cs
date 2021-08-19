@@ -27,9 +27,9 @@ namespace RTAManager.src.api
 
         public static void addRecord()
         {
-            RTAManager.src.system.Record record = new system.Record();
+            
             string url = "https://script.google.com/macros/s/AKfycbyn4M8KPHrlyvZONWC_xCcSGVAOC57HbWkpryoPSHlPBMr55FRPOQYF1px2A_-S85VRFw/exec";
-            string score = "12:34:56", tag = "RTA,RFA", name = "Bob", when = "2021/01/01/12:34:56", comment = "hi";
+            string score = "12:34:56", tag = "RTA,RFA", name = "Bob", when = "1900/01/01/12:34:56", comment = "hi-byAPI";
             string request = "?score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
 
             webRequest(url + request);
