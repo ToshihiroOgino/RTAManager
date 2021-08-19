@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Threading.Tasks;
+using System.Collections.Specialized;
 
 namespace RTAManager.src.api
 {
@@ -12,24 +13,26 @@ namespace RTAManager.src.api
         public static string getRecord()//レコード取得
         {
             string record;
-            record = webRequest("https://script.google.com/macros/s/AKfycbxE-LW8I1jAILXPXrC77dqN6a4Q1ThNb1u5_3SK_TR6sTwF2KvOMoNSG4QltXTl70XPJg/exec");
+            NameValueCollection request = new NameValueCollection();
+            request.Add("req", "gR");
 
+            record = webRequest(request);
             return record;
         }
         
-        public static string getTags()
+        public static string getTags()//タグ取得
         {
             string tags;
-            tags = webRequest("https://script.google.com/macros/s/AKfycbzWEvBwqBQ0C9NbBTxyFBjxsnViBWGJdUnvl4WhyNxpSnxTsT9igoQ-Wn_QjtYbA_tk/exec");
+            NameValueCollection request = new NameValueCollection();
+            request.Add("req", "gT");
 
+            tags = webRequest(request);
             return tags;
         }
 
-        public static void addRecord(Record newRecord)
+        public static void addRecord(Record newRecord)//レコード追加
         {
-            
-            string url = "https://script.google.com/macros/s/AKfycbynLE3HAZ2cE5YZCuTjKe4w7fY6QdpGsGiE2mIpI_wY2xwhp1ss1t5PJMTt7fW4KmAlHQ/exec";
-            string score = "", tag = "", name = "", when = "", comment = "";
+            string score, tag="", name, when, comment;
             
             score = newRecord.score;
             for(int i = 0; i< newRecord.tag.Count;i++)
@@ -44,19 +47,39 @@ namespace RTAManager.src.api
             when = newRecord.when;
             comment = newRecord.comment;
 
-            string request = "?score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
-            webRequest(url + request);
+            NameValueCollection request = new NameValueCollection();
+            request.Add("req", "aR");
+            request.Add("score", score);
+            request.Add("tag", tag);
+            request.Add("name", name);
+            request.Add("when", when);
+            request.Add("comment", comment);
+            
+            webRequest(request);
+        }
+
+        public static void addTags(string newTag)//タグ追加
+        {
+            NameValueCollection request = new NameValueCollection();
+            request.Add("req", "aT");
+            request.Add("tag", newTag);
+            
+            webRequest(request);
         }
         
-        public static string webRequest(string url)   //webへのアクセス
+        public static string webRequest(NameValueCollection param)   //webへのアクセス
         {
+            /*string url = "https://script.google.com/macros/s/AKfycbzDWVkXEjSqpJzE-cwBiaG6504uCJyymCGI00rrhjSXsxGA5-imaQOi0J8M9if1CiTi/exec";*/ //本番環境です
+            string url = "https://script.google.com/macros/s/AKfycbzKimFeW3sMUAdzJsxEb9py9bB90ZX9jJe27AehyIqKmj6RALHZbLBFlUbOdyW6ZAEgZg/exec";  //テスト環境です
             WebClient wc = new WebClient();
             wc.Encoding = System.Text.Encoding.UTF8;
+            byte[] resBytes;
             string res;
 
             try
             {
-                res = wc.DownloadString(url);
+                resBytes = wc.UploadValues(url, param);
+                res = Encoding.UTF8.GetString(resBytes);
             }
             catch (WebException e)
             {
