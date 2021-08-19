@@ -5,7 +5,7 @@ using System.Text;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace RTAManager
+namespace RTAManager.src.api
 {
     class ConAPI
     {
@@ -24,8 +24,13 @@ namespace RTAManager
 
             return tags;
         }
+
+        public static void addRecord()
+        {
+            RTAManager.src.system.Record record = new system.Record();
+        }
         
-        public static string webRequest(string url)   //上2つの関数を短くする用
+        public static string webRequest(string url)   //webへのアクセス
         {
             WebClient wc = new WebClient();
             wc.Encoding = System.Text.Encoding.UTF8;
