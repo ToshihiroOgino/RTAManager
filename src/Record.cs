@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
-namespace RTAManager.src.system
+namespace RTAManager.src
 {
 	public class Record
 	{

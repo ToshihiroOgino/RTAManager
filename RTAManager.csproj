@@ -56,8 +56,10 @@
     <Compile Include="src\api\ConAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\StaticObj.cs" />
     <Compile Include="src\system\DataProcesser.cs" />
-    <Compile Include="src\system\Record.cs" />
+    <Compile Include="src\Record.cs" />
+    <Compile Include="src\system\RecordsOrganizer.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -17,7 +17,7 @@ namespace RTAManager.src.system
 		/// APIから取得したJsonをリストに変換する関数
 		/// </summary>
 		/// <returns>Record</returns>
-		public static List<Record> JsonToList(List<string> tags)
+		public static List<Record> getRedordsFromAPI(List<string> tags)
 		{
 			string jsonString = null;
 			//TODO:API呼び出し
@@ -50,6 +50,30 @@ namespace RTAManager.src.system
 				rec.comment = temp.comment;
 				//戻り値に抽出した情報を追加
 				result.Add(rec);
+
+				//! アプリ全体に共有
+				StaticObj.AllRecords.Add(rec);
+			}
+
+			return result;
+		}
+
+		/// <summary>
+		/// タグをAPIからJsonで取得しList<string>型に変換する関数
+		/// </summary>
+		/// <returns>タグのリスト</returns>
+		public static List<string> getTagsFromAPI()
+		{
+			//APIからすべてのタグを取得し、デシリアライズ
+			List<Tag> Tags = (List<Tag>)getObjectFromJson(api.ConAPI.getTags(), typeof(List<Tag>));
+			
+			//string型のListに変換
+			List<string> result = new List<string>();
+			foreach (Tag tagObj in Tags)
+			{
+				result.Add(tagObj.tag);
+				//! アプリ全体に共有
+				StaticObj.AllTags.Add(tagObj.tag);
 			}
 			return result;
 		}
@@ -83,5 +107,12 @@ namespace RTAManager.src.system
 
 		[DataMember]
 		public string comment { get; set; }
+	}
+
+	[DataContract]
+	class Tag
+	{
+		[DataMember]
+		public string tag { get; set; }
 	}
 }
