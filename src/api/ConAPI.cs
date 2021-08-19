@@ -29,9 +29,22 @@ namespace RTAManager.src.api
         {
             
             string url = "https://script.google.com/macros/s/AKfycbynLE3HAZ2cE5YZCuTjKe4w7fY6QdpGsGiE2mIpI_wY2xwhp1ss1t5PJMTt7fW4KmAlHQ/exec";
-            string score = "12:34:56", tag = "RTA,RFA", name = "Bob", when = "1900/01/01/12:34:56", comment = "hi-byAPI";
-            string request = "?score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
+            string score = "", tag = "", name = "", when = "", comment = "";
+            
+            score = src.StaticObj.AllRecords[0].score;
+            for(int i = 0; i< src.StaticObj.AllRecords[0].tag.Count;i++)
+            {
+                if(i != 0)
+                {
+                    tag = tag + ",";
+                }
+                tag = tag + src.StaticObj.AllRecords[0].tag[i];
+            }
+            name = src.StaticObj.AllRecords[0].name;
+            when = src.StaticObj.AllRecords[0].when;
+            comment = src.StaticObj.AllRecords[0].comment;
 
+            string request = "?score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
             webRequest(url + request);
         }
         
