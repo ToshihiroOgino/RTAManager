@@ -25,24 +25,24 @@ namespace RTAManager.src.api
             return tags;
         }
 
-        public static void addRecord()
+        public static void addRecord(Record newRecord)
         {
             
             string url = "https://script.google.com/macros/s/AKfycbynLE3HAZ2cE5YZCuTjKe4w7fY6QdpGsGiE2mIpI_wY2xwhp1ss1t5PJMTt7fW4KmAlHQ/exec";
             string score = "", tag = "", name = "", when = "", comment = "";
             
-            score = src.StaticObj.AllRecords[0].score;
-            for(int i = 0; i< src.StaticObj.AllRecords[0].tag.Count;i++)
+            score = newRecord.score;
+            for(int i = 0; i< newRecord.tag.Count;i++)
             {
                 if(i != 0)
                 {
                     tag = tag + ",";
                 }
-                tag = tag + src.StaticObj.AllRecords[0].tag[i];
+                tag = tag + newRecord.tag[i];
             }
-            name = src.StaticObj.AllRecords[0].name;
-            when = src.StaticObj.AllRecords[0].when;
-            comment = src.StaticObj.AllRecords[0].comment;
+            name = newRecord.name;
+            when = newRecord.when;
+            comment = newRecord.comment;
 
             string request = "?score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
             webRequest(url + request);
