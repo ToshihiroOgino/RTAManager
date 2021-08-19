@@ -15,6 +15,7 @@ namespace RTAManager.src.system
 		{
 			var tags = StaticObj.AllTags;
 
+			/*x
 			bool[] checkList = new bool[tags.Count];//削除するIndexをfalseとする
 			for (int i = 0; i < tags.Count; i++)
 				checkList[i] = true;
@@ -32,7 +33,6 @@ namespace RTAManager.src.system
 						}
 					}
 			}
-
 			//重複タグを削除したリストを作成する
 			List<string> newTagList = new List<string>();
 			for (int i = 0; i < tags.Count; i++)
@@ -42,10 +42,10 @@ namespace RTAManager.src.system
 			}
 			//アプリ全体に新しいタグのリストを共有する
 			StaticObj.AllTags = newTagList;
-
+			tags = newTagList;
+			*/
 
 			//レコードにしか存在しないタグを検出する
-			tags = newTagList;
 			var records = StaticObj.AllRecords;
 			foreach (Record rec in records) //すべてのレーコード
 			{
