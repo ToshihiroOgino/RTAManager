@@ -11,25 +11,25 @@ namespace RTAManager.src.api
     {
         public static string getRecord()//レコード取得
         {
-            string record;
-            record = webRequest("https://script.google.com/macros/s/AKfycbxE-LW8I1jAILXPXrC77dqN6a4Q1ThNb1u5_3SK_TR6sTwF2KvOMoNSG4QltXTl70XPJg/exec");
+            string request,record;
+            request = "?req=gR";
 
+            record = webRequest(request);
             return record;
         }
         
         public static string getTags()
         {
-            string tags;
-            tags = webRequest("https://script.google.com/macros/s/AKfycbzWEvBwqBQ0C9NbBTxyFBjxsnViBWGJdUnvl4WhyNxpSnxTsT9igoQ-Wn_QjtYbA_tk/exec");
+            string request,tags;
+            request = "?req=gT";
 
+            tags = webRequest(request);
             return tags;
         }
 
         public static void addRecord(Record newRecord)
         {
-            
-            string url = "https://script.google.com/macros/s/AKfycbynLE3HAZ2cE5YZCuTjKe4w7fY6QdpGsGiE2mIpI_wY2xwhp1ss1t5PJMTt7fW4KmAlHQ/exec";
-            string score = "", tag = "", name = "", when = "", comment = "";
+            string score, tag="", name, when, comment;
             
             score = newRecord.score;
             for(int i = 0; i< newRecord.tag.Count;i++)
@@ -44,19 +44,26 @@ namespace RTAManager.src.api
             when = newRecord.when;
             comment = newRecord.comment;
 
-            string request = "?score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
-            webRequest(url + request);
+            string request = "?req=aR&score=" + score + "&tag=" + tag + "&name=" + name + "&when=" + when + "&comment=" + comment;
+            webRequest(request);
+        }
+
+        public static void addTags(string newTag)
+        {
+            string request = "?req=aT&tag=" + newTag;
+            webRequest(request);
         }
         
-        public static string webRequest(string url)   //webへのアクセス
+        public static string webRequest(string req)   //webへのアクセス
         {
+            string url = "https://script.google.com/macros/s/AKfycbzKimFeW3sMUAdzJsxEb9py9bB90ZX9jJe27AehyIqKmj6RALHZbLBFlUbOdyW6ZAEgZg/exec";
             WebClient wc = new WebClient();
             wc.Encoding = System.Text.Encoding.UTF8;
             string res;
 
             try
             {
-                res = wc.DownloadString(url);
+                res = wc.DownloadString(url + req);
             }
             catch (WebException e)
             {
