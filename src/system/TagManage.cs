@@ -18,19 +18,35 @@ namespace RTAManager.src.system
 			bool[] checkList = new bool[tags.Count];//削除するIndexをfalseとする
 			for (int i = 0; i < tags.Count; i++)
 				checkList[i] = true;
-			//重複タグを削除したリストを作成し、アプリ全体に共有する
+			//タグの重複を確認する
+			for (int i = 0; i < tags.Count; i++)
+			{
+				if (checkList[i])//すでに削除予定とされているIndexでは探索を行わない
+					for (int j = i; i < tags.Count; i++)
+					{
+						//消去予定のIndexはtrueにする
+						if (tags[i] == tags[j])
+						{
+							checkList[j] = false;
+							//TODOタグ削除API呼び出し
+						}
+					}
+			}
+
+			//重複タグを削除したリストを作成する
 			List<string> newTagList = new List<string>();
 			for (int i = 0; i < tags.Count; i++)
 			{
 				if (checkList[i])
 					newTagList.Add(tags[i]);
 			}
+			//アプリ全体に新しいタグのリストを共有する
 			StaticObj.AllTags = newTagList;
 
-			tags = newTagList;
-			var records = StaticObj.AllRecords;
 
 			//レコードにしか存在しないタグを検出する
+			tags = newTagList;
+			var records = StaticObj.AllRecords;
 			foreach (Record rec in records) //すべてのレーコード
 			{
 				foreach (string recTag in rec.tag) //recが内包するすべてのタグ
