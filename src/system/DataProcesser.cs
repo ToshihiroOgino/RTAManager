@@ -19,8 +19,8 @@ namespace RTAManager.src.system
 		/// <returns>Record</returns>
 		public static List<Record> getRedordsFromAPI(List<string> tags)
 		{
-			string jsonString = null;
-			//TODO:API呼び出し
+			//シートからレコードをjson形式で抽出
+			string jsonString = api.ConAPI.getRecord();
 
 			//デシリアライズ
 			List<TempRecord> tempList = (List<TempRecord>)getObjectFromJson(jsonString, typeof(List<TempRecord>));
