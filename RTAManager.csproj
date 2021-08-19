@@ -60,6 +60,7 @@
     <Compile Include="src\system\DataProcesser.cs" />
     <Compile Include="src\Record.cs" />
     <Compile Include="src\system\RecordsOrganizer.cs" />
+    <Compile Include="src\system\TagManage.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
