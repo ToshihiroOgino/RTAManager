@@ -65,11 +65,11 @@ namespace RTAManager.src.system
 		public static List<string> getTagsFromAPI()
 		{
 			//APIからすべてのタグを取得し、デシリアライズ
-			List<Tag> Tags = (List<Tag>)getObjectFromJson(api.ConAPI.getTags(), typeof(List<Tag>));
+			List<TempTag> Tags = (List<TempTag>)getObjectFromJson(api.ConAPI.getTags(), typeof(List<TempTag>));
 			
 			//string型のListに変換
 			List<string> result = new List<string>();
-			foreach (Tag tagObj in Tags)
+			foreach (TempTag tagObj in Tags)
 			{
 				result.Add(tagObj.tag);
 				//! アプリ全体に共有
@@ -110,7 +110,7 @@ namespace RTAManager.src.system
 	}
 
 	[DataContract]
-	class Tag
+	class TempTag
 	{
 		[DataMember]
 		public string tag { get; set; }

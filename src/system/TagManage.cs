@@ -51,20 +51,9 @@ namespace RTAManager.src.system
 			{
 				foreach (string recTag in rec.tag) //recが内包するすべてのタグ
 				{
-					bool isExist = false;
-					foreach (string existTag in tags) //すでにシートに記載されているすべてのタグ
-					{
-						if (recTag == existTag)
-						{
-							isExist = true;
-							break;
-						}
-					}
 					//レコードにしかないタグをシートに追加する
-					if (!isExist)
-					{
-						//TODO タグ追加API呼び出し(recTagを引数にする)
-					}
+					if (!tags.Contains(recTag))
+						api.ConAPI.addTags(recTag);
 				}
 			}
 		}
