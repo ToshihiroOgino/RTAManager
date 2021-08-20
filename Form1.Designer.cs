@@ -31,12 +31,12 @@ namespace RTAManager
 		{
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SortButton = new System.Windows.Forms.Button();
             this.Players = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tags = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SortButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@ namespace RTAManager
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -74,41 +74,6 @@ namespace RTAManager
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Players
-            // 
-            this.Players.HeaderText = "Players";
-            this.Players.MinimumWidth = 6;
-            this.Players.Name = "Players";
-            this.Players.ReadOnly = true;
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Time";
-            this.Time.MinimumWidth = 6;
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Comment
-            // 
-            this.Comment.HeaderText = "Comment";
-            this.Comment.MinimumWidth = 6;
-            this.Comment.Name = "Comment";
-            this.Comment.ReadOnly = true;
-            // 
-            // Tags
-            // 
-            this.Tags.HeaderText = "Tags";
-            this.Tags.MinimumWidth = 6;
-            this.Tags.Name = "Tags";
-            this.Tags.ReadOnly = true;
-            // 
             // SortButton
             // 
             this.SortButton.Location = new System.Drawing.Point(959, 24);
@@ -118,6 +83,51 @@ namespace RTAManager
             this.SortButton.Text = "Sort";
             this.SortButton.UseVisualStyleBackColor = true;
             this.SortButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Players
+            // 
+            this.Players.FillWeight = 75F;
+            this.Players.HeaderText = "Players";
+            this.Players.MinimumWidth = 6;
+            this.Players.Name = "Players";
+            this.Players.ReadOnly = true;
+            this.Players.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Players.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Time
+            // 
+            this.Time.FillWeight = 75F;
+            this.Time.HeaderText = "Time";
+            this.Time.MinimumWidth = 6;
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            this.Time.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Comment
+            // 
+            this.Comment.HeaderText = "Comment";
+            this.Comment.MinimumWidth = 6;
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
+            this.Comment.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Tags
+            // 
+            this.Tags.HeaderText = "Tags";
+            this.Tags.MinimumWidth = 6;
+            this.Tags.Name = "Tags";
+            this.Tags.ReadOnly = true;
+            this.Tags.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Tags.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Form1
             // 
@@ -139,12 +149,12 @@ namespace RTAManager
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button SortButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Players;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tags;
-        private System.Windows.Forms.Button SortButton;
     }
 }
 
