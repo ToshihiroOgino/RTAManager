@@ -29,13 +29,14 @@ namespace RTAManager
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Players = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tags = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SortButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +46,13 @@ namespace RTAManager
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -58,12 +62,13 @@ namespace RTAManager
             this.Comment,
             this.Tags});
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 66);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.Size = new System.Drawing.Size(1043, 474);
             this.dataGridView1.TabIndex = 0;
@@ -74,56 +79,57 @@ namespace RTAManager
             this.Players.HeaderText = "Players";
             this.Players.MinimumWidth = 6;
             this.Players.Name = "Players";
-            this.Players.Width = 125;
+            this.Players.ReadOnly = true;
             // 
             // Time
             // 
             this.Time.HeaderText = "Time";
             this.Time.MinimumWidth = 6;
             this.Time.Name = "Time";
-            this.Time.Width = 125;
+            this.Time.ReadOnly = true;
             // 
             // Date
             // 
             this.Date.HeaderText = "Date";
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
-            this.Date.Width = 125;
+            this.Date.ReadOnly = true;
             // 
             // Comment
             // 
             this.Comment.HeaderText = "Comment";
             this.Comment.MinimumWidth = 6;
             this.Comment.Name = "Comment";
-            this.Comment.Width = 125;
+            this.Comment.ReadOnly = true;
             // 
             // Tags
             // 
             this.Tags.HeaderText = "Tags";
             this.Tags.MinimumWidth = 6;
             this.Tags.Name = "Tags";
-            this.Tags.Width = 125;
+            this.Tags.ReadOnly = true;
             // 
-            // button1
+            // SortButton
             // 
-            this.button1.Location = new System.Drawing.Point(959, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 36);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SortButton.Location = new System.Drawing.Point(959, 24);
+            this.SortButton.Name = "SortButton";
+            this.SortButton.Size = new System.Drawing.Size(96, 36);
+            this.SortButton.TabIndex = 1;
+            this.SortButton.Text = "Sort";
+            this.SortButton.UseVisualStyleBackColor = true;
+            this.SortButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1067, 562);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SortButton);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "RTAManager";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -138,7 +144,7 @@ namespace RTAManager
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tags;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SortButton;
     }
 }
 
