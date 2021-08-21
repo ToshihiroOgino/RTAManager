@@ -36,7 +36,6 @@ namespace RTAManager
 			this.commentLabel = new System.Windows.Forms.Label();
 			this.commentRichTextBox = new System.Windows.Forms.RichTextBox();
 			this.NameTextBox = new System.Windows.Forms.TextBox();
-			this.RecordTextBox = new System.Windows.Forms.TextBox();
 			this.enableComboBox = new System.Windows.Forms.ComboBox();
 			this.disableComboBox = new System.Windows.Forms.ComboBox();
 			this.AddTagBtn = new System.Windows.Forms.Button();
@@ -46,12 +45,18 @@ namespace RTAManager
 			this.disableLabel = new System.Windows.Forms.Label();
 			this.enableBtn = new System.Windows.Forms.Button();
 			this.disableBtn = new System.Windows.Forms.Button();
+			this.hourBox = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.minutsBox = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.secondBox = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// AddBtn
 			// 
 			this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AddBtn.Location = new System.Drawing.Point(372, 365);
+			this.AddBtn.Location = new System.Drawing.Point(366, 377);
 			this.AddBtn.Margin = new System.Windows.Forms.Padding(5);
 			this.AddBtn.Name = "AddBtn";
 			this.AddBtn.Size = new System.Drawing.Size(148, 59);
@@ -104,7 +109,7 @@ namespace RTAManager
 			// 
 			this.commentRichTextBox.Location = new System.Drawing.Point(34, 219);
 			this.commentRichTextBox.Name = "commentRichTextBox";
-			this.commentRichTextBox.Size = new System.Drawing.Size(478, 141);
+			this.commentRichTextBox.Size = new System.Drawing.Size(482, 141);
 			this.commentRichTextBox.TabIndex = 6;
 			this.commentRichTextBox.Text = "";
 			// 
@@ -114,13 +119,6 @@ namespace RTAManager
 			this.NameTextBox.Name = "NameTextBox";
 			this.NameTextBox.Size = new System.Drawing.Size(394, 29);
 			this.NameTextBox.TabIndex = 7;
-			// 
-			// RecordTextBox
-			// 
-			this.RecordTextBox.Location = new System.Drawing.Point(122, 47);
-			this.RecordTextBox.Name = "RecordTextBox";
-			this.RecordTextBox.Size = new System.Drawing.Size(394, 29);
-			this.RecordTextBox.TabIndex = 8;
 			// 
 			// enableComboBox
 			// 
@@ -208,11 +206,71 @@ namespace RTAManager
 			this.disableBtn.UseVisualStyleBackColor = true;
 			this.disableBtn.Click += new System.EventHandler(this.disableBtn_Click);
 			// 
+			// hourBox
+			// 
+			this.hourBox.Location = new System.Drawing.Point(122, 47);
+			this.hourBox.Name = "hourBox";
+			this.hourBox.Size = new System.Drawing.Size(39, 29);
+			this.hourBox.TabIndex = 18;
+			this.hourBox.TextChanged += new System.EventHandler(this.hourBox_TextChanged);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(164, 50);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(54, 22);
+			this.label1.TabIndex = 19;
+			this.label1.Text = "時間";
+			// 
+			// minutsBox
+			// 
+			this.minutsBox.Location = new System.Drawing.Point(225, 47);
+			this.minutsBox.Name = "minutsBox";
+			this.minutsBox.Size = new System.Drawing.Size(39, 29);
+			this.minutsBox.TabIndex = 20;
+			this.minutsBox.TextChanged += new System.EventHandler(this.minutsBox_TextChanged);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(271, 50);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(32, 22);
+			this.label2.TabIndex = 21;
+			this.label2.Text = "分";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(356, 50);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(32, 22);
+			this.label3.TabIndex = 23;
+			this.label3.Text = "秒";
+			// 
+			// secondBox
+			// 
+			this.secondBox.Location = new System.Drawing.Point(310, 47);
+			this.secondBox.Name = "secondBox";
+			this.secondBox.Size = new System.Drawing.Size(39, 29);
+			this.secondBox.TabIndex = 22;
+			this.secondBox.TextChanged += new System.EventHandler(this.secondBox_TextChanged);
+			// 
 			// InputForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(534, 438);
+			this.ClientSize = new System.Drawing.Size(528, 450);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.secondBox);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.minutsBox);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.hourBox);
 			this.Controls.Add(this.disableBtn);
 			this.Controls.Add(this.enableBtn);
 			this.Controls.Add(this.disableLabel);
@@ -222,7 +280,6 @@ namespace RTAManager
 			this.Controls.Add(this.AddTagBtn);
 			this.Controls.Add(this.disableComboBox);
 			this.Controls.Add(this.enableComboBox);
-			this.Controls.Add(this.RecordTextBox);
 			this.Controls.Add(this.NameTextBox);
 			this.Controls.Add(this.commentRichTextBox);
 			this.Controls.Add(this.commentLabel);
@@ -249,7 +306,6 @@ namespace RTAManager
 		private System.Windows.Forms.Label commentLabel;
 		private System.Windows.Forms.RichTextBox commentRichTextBox;
 		private System.Windows.Forms.TextBox NameTextBox;
-		private System.Windows.Forms.TextBox RecordTextBox;
 		private System.Windows.Forms.ComboBox enableComboBox;
 		private System.Windows.Forms.ComboBox disableComboBox;
 		private System.Windows.Forms.Button AddTagBtn;
@@ -259,5 +315,11 @@ namespace RTAManager
 		private System.Windows.Forms.Label disableLabel;
 		private System.Windows.Forms.Button enableBtn;
 		private System.Windows.Forms.Button disableBtn;
+		private System.Windows.Forms.TextBox hourBox;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox minutsBox;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox secondBox;
 	}
 }
