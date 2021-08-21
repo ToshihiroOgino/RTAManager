@@ -30,18 +30,31 @@ namespace RTAManager
         {
             src.system.DataProcesser.getRedordsFromAPI();
             List<src.Record> AllRecords = src.StaticObj.AllRecords;
+            src.Record record = new src.Record();
+
+            record.name = "nemoto";
+            record.score = "0";
+            record.when = "0";
+            record.tag.Add("a");
+            record.comment = "a";
+
+            AllRecords.Add(record);
+
+            dataGridView1.DataSource = AllRecords;
+
             /*
-            for(int i = 0; ; i++)
+            for (int i = 0; ; i++)
             {
-                for(int j = 0; ; j++)
-                {   
-                    dataGridView1[i,j].Value=AllRecords[name]           
-                    if ()
+                dataGridView1[i, 1].Value = AllRecords[i].name;
+                dataGridView1[i, 2].Value = AllRecords[i].score;
+                dataGridView1[i, 3].Value = AllRecords[i].when;
+                dataGridView1[i, 4].Value = AllRecords[i].tag;
+                dataGridView1[i, 5].Value = AllRecords[i].comment;
+
+                if (AllRecords[i].name==string.Empty)
                     {
                         break;
                     }
-                }
-                
             }*/
         }
 
