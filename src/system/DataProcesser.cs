@@ -24,8 +24,9 @@ namespace RTAManager.src.system
 			//デシリアライズ
 			List<TempRecord> tempList = (List<TempRecord>)getObjectFromJson(jsonString, typeof(List<TempRecord>));
 
+			StaticObj.AllRecords = new List<Record>();
+
 			//Record型に変換する
-			List<Record> result = new List<Record>();
 			foreach (TempRecord temp in tempList)
 			{
 				var rec = new Record();
@@ -35,7 +36,7 @@ namespace RTAManager.src.system
 					//カンマまでtemp.tagを抜き出してリストに加える。もしカンマがなかった場合は全体をリストに加える
 					int length = temp.tag.IndexOf(",") != -1 ? temp.tag.IndexOf(",") : temp.tag.Length;
 					rec.tag.Add(temp.tag.Substring(0, length));
-					
+
 					//抜き出した部分を切り捨てる
 					temp.tag = temp.tag.Substring(length);
 					//1文字目がカンマだった場合はカンマを取り除く
@@ -47,8 +48,6 @@ namespace RTAManager.src.system
 				rec.name = temp.name;
 				rec.when = temp.when;
 				rec.comment = temp.comment;
-				//戻り値に抽出した情報を追加
-				result.Add(rec);
 
 				//! アプリ全体に共有
 				StaticObj.AllRecords.Add(rec);
@@ -62,12 +61,12 @@ namespace RTAManager.src.system
 		{
 			//APIからすべてのタグを取得し、デシリアライズ
 			List<TempTag> Tags = (List<TempTag>)getObjectFromJson(api.ConAPI.getTags(), typeof(List<TempTag>));
-			
+
+			StaticObj.AllTags = new List<string>();
+
 			//string型のListに変換
-			List<string> result = new List<string>();
 			foreach (TempTag tagObj in Tags)
 			{
-				result.Add(tagObj.tag);
 				//! アプリ全体に共有
 				StaticObj.AllTags.Add(tagObj.tag);
 			}
