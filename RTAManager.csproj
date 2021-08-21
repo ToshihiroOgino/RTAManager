@@ -59,6 +59,12 @@
     <Compile Include="InputForm.Designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sender.Designer.cs">
+      <DependentUpon>Sender.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\api\ConAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +88,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sender.resx">
+      <DependentUpon>Sender.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
