@@ -40,8 +40,9 @@ namespace RTAManager.src.system
 					//抜き出した部分を切り捨てる
 					temp.tag = temp.tag.Substring(length);
 					//1文字目がカンマだった場合はカンマを取り除く
-					if (temp.tag.Substring(0, 1) == ",")
-						temp.tag = temp.tag.Substring(1);
+					if (temp.tag.Length > 1)
+						if (temp.tag.Substring(0, 1) == ",")
+							temp.tag = temp.tag.Substring(1);
 				}
 				//その他はString型のまま情報を複製
 				rec.score = temp.score;
