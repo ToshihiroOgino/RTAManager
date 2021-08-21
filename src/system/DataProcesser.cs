@@ -16,8 +16,7 @@ namespace RTAManager.src.system
 		/// <summary>
 		/// APIから取得したJsonをリストに変換する関数
 		/// </summary>
-		/// <returns>Record</returns>
-		public static List<Record> getRedordsFromAPI(List<string> tags)
+		public static void getRedordsFromAPI()
 		{
 			//シートからレコードをjson形式で抽出
 			string jsonString = api.ConAPI.getRecord();
@@ -54,15 +53,12 @@ namespace RTAManager.src.system
 				//! アプリ全体に共有
 				StaticObj.AllRecords.Add(rec);
 			}
-
-			return result;
 		}
 
 		/// <summary>
 		/// タグをAPIからJsonで取得しList<string>型に変換する関数
 		/// </summary>
-		/// <returns>タグのリスト</returns>
-		public static List<string> getTagsFromAPI()
+		public static void getTagsFromAPI()
 		{
 			//APIからすべてのタグを取得し、デシリアライズ
 			List<TempTag> Tags = (List<TempTag>)getObjectFromJson(api.ConAPI.getTags(), typeof(List<TempTag>));
@@ -75,7 +71,6 @@ namespace RTAManager.src.system
 				//! アプリ全体に共有
 				StaticObj.AllTags.Add(tagObj.tag);
 			}
-			return result;
 		}
 
 		/// <summary>

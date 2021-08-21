@@ -36,8 +36,6 @@ namespace RTAManager
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tags = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SortButton = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +51,7 @@ namespace RTAManager
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -77,22 +75,17 @@ namespace RTAManager
             // 
             // Players
             // 
-            this.Players.FillWeight = 75F;
             this.Players.HeaderText = "Players";
             this.Players.MinimumWidth = 6;
             this.Players.Name = "Players";
             this.Players.ReadOnly = true;
-            this.Players.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Players.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Time
             // 
-            this.Time.FillWeight = 75F;
             this.Time.HeaderText = "Time";
             this.Time.MinimumWidth = 6;
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
-            this.Time.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Date
             // 
@@ -100,7 +93,6 @@ namespace RTAManager
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
-            this.Date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Comment
             // 
@@ -108,8 +100,6 @@ namespace RTAManager
             this.Comment.MinimumWidth = 6;
             this.Comment.Name = "Comment";
             this.Comment.ReadOnly = true;
-            this.Comment.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Comment.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Tags
             // 
@@ -117,26 +107,6 @@ namespace RTAManager
             this.Tags.MinimumWidth = 6;
             this.Tags.Name = "Tags";
             this.Tags.ReadOnly = true;
-            this.Tags.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Tags.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // SortButton
-            // 
-            this.SortButton.Location = new System.Drawing.Point(959, 24);
-            this.SortButton.Name = "SortButton";
-            this.SortButton.Size = new System.Drawing.Size(96, 36);
-            this.SortButton.TabIndex = 1;
-            this.SortButton.Text = "Sort";
-            this.SortButton.UseVisualStyleBackColor = true;
-            this.SortButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(223, 560);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 3;
             // 
             // Form1
             // 
@@ -144,8 +114,6 @@ namespace RTAManager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1067, 562);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.SortButton);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -165,7 +133,6 @@ namespace RTAManager
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tags;
-        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 

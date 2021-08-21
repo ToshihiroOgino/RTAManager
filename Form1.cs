@@ -44,7 +44,7 @@ namespace RTAManager
         }
 
         [SecurityPermissionAttribute(
-       SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+        SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public class MyCheckedListCombo : ComboBox
         {
             ToolStripControlHost checkedListHost;
@@ -136,5 +136,11 @@ namespace RTAManager
 
           
         }
-    }
+
+		private void AddRecBtn_Click(object sender, EventArgs e)
+		{
+			InputForm inputForm = new InputForm();
+			inputForm.Show();
+		}
+	}
 }
