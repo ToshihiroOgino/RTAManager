@@ -29,8 +29,9 @@ namespace RTAManager
         private void Form1_Load(object sender, EventArgs e)
         {
             src.system.DataProcesser.getRedordsFromAPI();
-            List<src.Record> AllRecords = src.StaticObj.AllRecords;
+            List<src.Record> AllRecords = new List<src.Record>();
             src.Record record = new src.Record();
+            string[] tags=new string[AllRecords.Count];
 
             record.name = "nemoto";
             record.score = "0";
