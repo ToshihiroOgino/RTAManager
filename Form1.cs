@@ -29,6 +29,8 @@ namespace RTAManager
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            dataGridView1.
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
