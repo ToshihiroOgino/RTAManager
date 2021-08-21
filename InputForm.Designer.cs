@@ -37,10 +37,10 @@ namespace RTAManager
 			this.commentRichTextBox = new System.Windows.Forms.RichTextBox();
 			this.NameTextBox = new System.Windows.Forms.TextBox();
 			this.RecordTextBox = new System.Windows.Forms.TextBox();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.enableComboBox = new System.Windows.Forms.ComboBox();
+			this.disableComboBox = new System.Windows.Forms.ComboBox();
 			this.AddTagBtn = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.newTagTextBox = new System.Windows.Forms.TextBox();
 			this.newTagLabel = new System.Windows.Forms.Label();
 			this.enableLabel = new System.Windows.Forms.Label();
 			this.disableLabel = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@ namespace RTAManager
 			// AddBtn
 			// 
 			this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.AddBtn.Location = new System.Drawing.Point(364, 365);
+			this.AddBtn.Location = new System.Drawing.Point(372, 365);
 			this.AddBtn.Margin = new System.Windows.Forms.Padding(5);
 			this.AddBtn.Name = "AddBtn";
 			this.AddBtn.Size = new System.Drawing.Size(148, 59);
@@ -83,7 +83,7 @@ namespace RTAManager
 			// tagLabel
 			// 
 			this.tagLabel.AutoSize = true;
-			this.tagLabel.Location = new System.Drawing.Point(62, 110);
+			this.tagLabel.Location = new System.Drawing.Point(72, 110);
 			this.tagLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.tagLabel.Name = "tagLabel";
 			this.tagLabel.Size = new System.Drawing.Size(43, 22);
@@ -112,31 +112,31 @@ namespace RTAManager
 			// 
 			this.NameTextBox.Location = new System.Drawing.Point(122, 12);
 			this.NameTextBox.Name = "NameTextBox";
-			this.NameTextBox.Size = new System.Drawing.Size(390, 29);
+			this.NameTextBox.Size = new System.Drawing.Size(394, 29);
 			this.NameTextBox.TabIndex = 7;
 			// 
 			// RecordTextBox
 			// 
 			this.RecordTextBox.Location = new System.Drawing.Point(122, 47);
 			this.RecordTextBox.Name = "RecordTextBox";
-			this.RecordTextBox.Size = new System.Drawing.Size(390, 29);
+			this.RecordTextBox.Size = new System.Drawing.Size(394, 29);
 			this.RecordTextBox.TabIndex = 8;
 			// 
-			// comboBox1
+			// enableComboBox
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(113, 110);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(154, 29);
-			this.comboBox1.TabIndex = 9;
+			this.enableComboBox.FormattingEnabled = true;
+			this.enableComboBox.Location = new System.Drawing.Point(122, 110);
+			this.enableComboBox.Name = "enableComboBox";
+			this.enableComboBox.Size = new System.Drawing.Size(154, 29);
+			this.enableComboBox.TabIndex = 9;
 			// 
-			// comboBox2
+			// disableComboBox
 			// 
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(353, 110);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(154, 29);
-			this.comboBox2.TabIndex = 10;
+			this.disableComboBox.FormattingEnabled = true;
+			this.disableComboBox.Location = new System.Drawing.Point(362, 110);
+			this.disableComboBox.Name = "disableComboBox";
+			this.disableComboBox.Size = new System.Drawing.Size(154, 29);
+			this.disableComboBox.TabIndex = 10;
 			// 
 			// AddTagBtn
 			// 
@@ -149,12 +149,12 @@ namespace RTAManager
 			this.AddTagBtn.UseVisualStyleBackColor = true;
 			this.AddTagBtn.Click += new System.EventHandler(this.AddTagBtn_Click);
 			// 
-			// textBox1
+			// newTagTextBox
 			// 
-			this.textBox1.Location = new System.Drawing.Point(205, 158);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(149, 29);
-			this.textBox1.TabIndex = 12;
+			this.newTagTextBox.Location = new System.Drawing.Point(205, 158);
+			this.newTagTextBox.Name = "newTagTextBox";
+			this.newTagTextBox.Size = new System.Drawing.Size(149, 29);
+			this.newTagTextBox.TabIndex = 12;
 			// 
 			// newTagLabel
 			// 
@@ -169,7 +169,7 @@ namespace RTAManager
 			// enableLabel
 			// 
 			this.enableLabel.AutoSize = true;
-			this.enableLabel.Location = new System.Drawing.Point(155, 85);
+			this.enableLabel.Location = new System.Drawing.Point(164, 85);
 			this.enableLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.enableLabel.Name = "enableLabel";
 			this.enableLabel.Size = new System.Drawing.Size(70, 22);
@@ -179,7 +179,7 @@ namespace RTAManager
 			// disableLabel
 			// 
 			this.disableLabel.AutoSize = true;
-			this.disableLabel.Location = new System.Drawing.Point(389, 85);
+			this.disableLabel.Location = new System.Drawing.Point(398, 85);
 			this.disableLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.disableLabel.Name = "disableLabel";
 			this.disableLabel.Size = new System.Drawing.Size(76, 22);
@@ -188,7 +188,7 @@ namespace RTAManager
 			// 
 			// enableBtn
 			// 
-			this.enableBtn.Location = new System.Drawing.Point(275, 110);
+			this.enableBtn.Location = new System.Drawing.Point(284, 110);
 			this.enableBtn.Margin = new System.Windows.Forms.Padding(5);
 			this.enableBtn.Name = "enableBtn";
 			this.enableBtn.Size = new System.Drawing.Size(30, 30);
@@ -199,7 +199,7 @@ namespace RTAManager
 			// 
 			// disableBtn
 			// 
-			this.disableBtn.Location = new System.Drawing.Point(315, 110);
+			this.disableBtn.Location = new System.Drawing.Point(324, 110);
 			this.disableBtn.Margin = new System.Windows.Forms.Padding(5);
 			this.disableBtn.Name = "disableBtn";
 			this.disableBtn.Size = new System.Drawing.Size(30, 30);
@@ -212,16 +212,16 @@ namespace RTAManager
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(526, 438);
+			this.ClientSize = new System.Drawing.Size(534, 438);
 			this.Controls.Add(this.disableBtn);
 			this.Controls.Add(this.enableBtn);
 			this.Controls.Add(this.disableLabel);
 			this.Controls.Add(this.enableLabel);
 			this.Controls.Add(this.newTagLabel);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.newTagTextBox);
 			this.Controls.Add(this.AddTagBtn);
-			this.Controls.Add(this.comboBox2);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.disableComboBox);
+			this.Controls.Add(this.enableComboBox);
 			this.Controls.Add(this.RecordTextBox);
 			this.Controls.Add(this.NameTextBox);
 			this.Controls.Add(this.commentRichTextBox);
@@ -234,6 +234,7 @@ namespace RTAManager
 			this.Margin = new System.Windows.Forms.Padding(5);
 			this.Name = "InputForm";
 			this.Text = "InputForm";
+			this.Load += new System.EventHandler(this.InputForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -249,10 +250,10 @@ namespace RTAManager
 		private System.Windows.Forms.RichTextBox commentRichTextBox;
 		private System.Windows.Forms.TextBox NameTextBox;
 		private System.Windows.Forms.TextBox RecordTextBox;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.ComboBox comboBox2;
+		private System.Windows.Forms.ComboBox enableComboBox;
+		private System.Windows.Forms.ComboBox disableComboBox;
 		private System.Windows.Forms.Button AddTagBtn;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox newTagTextBox;
 		private System.Windows.Forms.Label newTagLabel;
 		private System.Windows.Forms.Label enableLabel;
 		private System.Windows.Forms.Label disableLabel;
