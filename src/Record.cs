@@ -11,6 +11,11 @@ namespace RTAManager.src
 {
 	public class Record
 	{
+		public Record()
+		{
+			tag = new List<string>();
+		}
+
 		/// <summary>作成者</summary>
 		[DataMember]
 		public string name { get; set; }
