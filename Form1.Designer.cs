@@ -29,7 +29,7 @@ namespace RTAManager
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.button1 = new System.Windows.Forms.Button();
 			this.reloadButton = new System.Windows.Forms.Button();
@@ -43,8 +43,8 @@ namespace RTAManager
 			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.AllowUserToResizeColumns = false;
 			this.dataGridView1.AllowUserToResizeRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -99,7 +99,7 @@ namespace RTAManager
 			this.TagCheckBox.Location = new System.Drawing.Point(9, 4);
 			this.TagCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.TagCheckBox.Name = "TagCheckBox";
-			this.TagCheckBox.Size = new System.Drawing.Size(123, 46);
+			this.TagCheckBox.Size = new System.Drawing.Size(123, 60);
 			this.TagCheckBox.TabIndex = 3;
 			this.TagCheckBox.SelectedIndexChanged += new System.EventHandler(this.TagCheckBox_SelectedIndexChanged);
 			// 
