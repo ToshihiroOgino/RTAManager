@@ -20,7 +20,7 @@ namespace RTAManager
             checkedListCombo.CheckedListBox.Items.Add("one");
             checkedListCombo.CheckedListBox.Items.Add("two");
             checkedListCombo.CheckedListBox.Items.Add("three");
-            checkedListCombo.CheckedListBox.Location.Offset(13,36);
+            checkedListCombo.CheckedListBox.Location.Offset(13, 36);
 
             checkedListCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             this.Controls.Add(checkedListCombo);
@@ -28,10 +28,24 @@ namespace RTAManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            dataGridView1.
-
+            src.system.DataProcesser.getRedordsFromAPI();
+            List<src.Record> AllRecords = src.StaticObj.AllRecords;
+            /*
+            for(int i = 0; ; i++)
+            {
+                for(int j = 0; ; j++)
+                {   
+                    dataGridView1[i,j].Value=AllRecords[name]           
+                    if ()
+                    {
+                        break;
+                    }
+                }
+                
+            }*/
         }
+
+            
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,10 +151,10 @@ namespace RTAManager
           
         }
 
-		private void AddRecBtn_Click(object sender, EventArgs e)
-		{
-			InputForm inputForm = new InputForm();
-			inputForm.Show();
-		}
-	}
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            InputForm inputForm = new InputForm();
+            inputForm.Show();
+        }
+    }
 }
