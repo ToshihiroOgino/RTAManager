@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Permissions;
+using System.Runtime.Serialization;
 
 namespace RTAManager
 {
@@ -16,50 +17,59 @@ namespace RTAManager
         public Form1()
         {
             InitializeComponent();
-            MyCheckedListCombo checkedListCombo = new MyCheckedListCombo();
-            checkedListCombo.CheckedListBox.Items.Add("one");
-            checkedListCombo.CheckedListBox.Items.Add("two");
-            checkedListCombo.CheckedListBox.Items.Add("three");
-            checkedListCombo.CheckedListBox.Location.Offset(13, 36);
 
-            checkedListCombo.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.Controls.Add(checkedListCombo);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             src.system.DataProcesser.getRedordsFromAPI();
-            List<src.Record> AllRecords = new List<src.Record>();
-            src.Record record = new src.Record();
-            string[] tags=new string[AllRecords.Count];
+            src.system.DataProcesser.getTagsFromAPI(); //タグ取得
+            List<src.Record> AllRecords = src.StaticObj.AllRecords;
 
-            record.name = "nemoto";
-            record.score = "0";
-            record.when = "0";
-            record.tag.Add("a");
-            record.comment = "a";
 
-            AllRecords.Add(record);
-
-            dataGridView1.DataSource = AllRecords;
-
-            /*
-            for (int i = 0; ; i++)
+            List<Tempotags> tags = new List<Tempotags>();
+            foreach (src.Record records in AllRecords)
             {
-                dataGridView1[i, 1].Value = AllRecords[i].name;
-                dataGridView1[i, 2].Value = AllRecords[i].score;
-                dataGridView1[i, 3].Value = AllRecords[i].when;
-                dataGridView1[i, 4].Value = AllRecords[i].tag;
-                dataGridView1[i, 5].Value = AllRecords[i].comment;
+                Tempotags tagsForView = new Tempotags();
+                tagsForView.tag = null;
+                tagsForView.name = records.name;
+                tagsForView.score = records.score;
+                tagsForView.when = records.when;
+                tagsForView.comment = records.comment;
+                foreach (string tag in records.tag)
+                {
+                    tagsForView.tag += tag + ",";
+                }
+                tags.Add(tagsForView);
+            }
 
-                if (AllRecords[i].name==string.Empty)
-                    {
-                        break;
-                    }
-            }*/
+            dataGridView1.DataSource = tags;
+
+
+            foreach (string tag in src.StaticObj.AllTags)
+            {
+                TagCheckBox.Items.Add(tag);
+            }
+
+            /* MyCheckedListCombo checkedListCombo = new MyCheckedListCombo();
+             checkedListCombo.CheckedListBox.Location.;
+
+             checkedListCombo.SelectedIndexChanged += new EventHandler(checkedListBoxUpdated);
+             checkedListCombo.Name = "TagCheckBox";
+
+             foreach(string tag in src.StaticObj.AllTags)
+             {
+                 checkedListCombo.CheckedListBox.Items.Add(tag);
+             }
+             checkedListCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+             this.Controls.Add(checkedListCombo);*/
+
         }
 
-            
+        private void checkedListBoxUpdated(object sender, EventArgs e)
+        {
+
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -162,7 +172,7 @@ namespace RTAManager
                 base.Dispose(disposing);
             }
 
-          
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -170,5 +180,41 @@ namespace RTAManager
             InputForm inputForm = new InputForm();
             inputForm.Show();
         }
+
+        private void reloadButton_Click(object sender, EventArgs e)
+        {
+            src.system.DataProcesser.getRedordsFromAPI();
+            src.system.DataProcesser.getTagsFromAPI();
+            src.system.TagManage.ConsistencyChecker();
+            
+        }
+
+        private void TagCheckBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+    class Tempotags
+    {
+        [DataMember]
+        public string name { get; set; }
+
+        /// <summary>スコア</summary>
+        [DataMember]
+        public string score { get; set; }
+
+        /// <summary>記録時間</summary>
+        [DataMember]
+        public string when { get; set; }
+
+        /// <summary>タグ</summary>
+        [DataMember]
+        public string tag { get; set; }
+
+        /// <summary>コメント</summary>
+        [DataMember]
+        public string comment { get; set; }
+    }
+
 }
