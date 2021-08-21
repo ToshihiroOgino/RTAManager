@@ -31,5 +31,11 @@ namespace RTAManager
         {
 
         }
-    }
+
+		private void AddRecBtn_Click(object sender, EventArgs e)
+		{
+			InputForm inputForm = new InputForm();
+			inputForm.Show();
+		}
+	}
 }
