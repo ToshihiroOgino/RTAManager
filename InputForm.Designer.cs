@@ -41,8 +41,6 @@ namespace RTAManager
 			this.AddTagBtn = new System.Windows.Forms.Button();
 			this.newTagTextBox = new System.Windows.Forms.TextBox();
 			this.newTagLabel = new System.Windows.Forms.Label();
-			this.enableLabel = new System.Windows.Forms.Label();
-			this.disableLabel = new System.Windows.Forms.Label();
 			this.enableBtn = new System.Windows.Forms.Button();
 			this.disableBtn = new System.Windows.Forms.Button();
 			this.hourBox = new System.Windows.Forms.TextBox();
@@ -51,6 +49,9 @@ namespace RTAManager
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.secondBox = new System.Windows.Forms.TextBox();
+			this.explainLabel = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// AddBtn
@@ -119,6 +120,7 @@ namespace RTAManager
 			this.NameTextBox.Name = "NameTextBox";
 			this.NameTextBox.Size = new System.Drawing.Size(394, 29);
 			this.NameTextBox.TabIndex = 7;
+			this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
 			// 
 			// enableComboBox
 			// 
@@ -138,7 +140,7 @@ namespace RTAManager
 			// 
 			// AddTagBtn
 			// 
-			this.AddTagBtn.Location = new System.Drawing.Point(362, 154);
+			this.AddTagBtn.Location = new System.Drawing.Point(362, 168);
 			this.AddTagBtn.Margin = new System.Windows.Forms.Padding(5);
 			this.AddTagBtn.Name = "AddTagBtn";
 			this.AddTagBtn.Size = new System.Drawing.Size(140, 34);
@@ -149,40 +151,21 @@ namespace RTAManager
 			// 
 			// newTagTextBox
 			// 
-			this.newTagTextBox.Location = new System.Drawing.Point(205, 158);
+			this.newTagTextBox.Location = new System.Drawing.Point(205, 172);
 			this.newTagTextBox.Name = "newTagTextBox";
 			this.newTagTextBox.Size = new System.Drawing.Size(149, 29);
 			this.newTagTextBox.TabIndex = 12;
+			this.newTagTextBox.TextChanged += new System.EventHandler(this.newTagTextBox_TextChanged);
 			// 
 			// newTagLabel
 			// 
 			this.newTagLabel.AutoSize = true;
-			this.newTagLabel.Location = new System.Drawing.Point(109, 161);
+			this.newTagLabel.Location = new System.Drawing.Point(109, 175);
 			this.newTagLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.newTagLabel.Name = "newTagLabel";
 			this.newTagLabel.Size = new System.Drawing.Size(89, 22);
 			this.newTagLabel.TabIndex = 13;
 			this.newTagLabel.Text = "New Tag";
-			// 
-			// enableLabel
-			// 
-			this.enableLabel.AutoSize = true;
-			this.enableLabel.Location = new System.Drawing.Point(164, 85);
-			this.enableLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.enableLabel.Name = "enableLabel";
-			this.enableLabel.Size = new System.Drawing.Size(70, 22);
-			this.enableLabel.TabIndex = 14;
-			this.enableLabel.Text = "Enable";
-			// 
-			// disableLabel
-			// 
-			this.disableLabel.AutoSize = true;
-			this.disableLabel.Location = new System.Drawing.Point(398, 85);
-			this.disableLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.disableLabel.Name = "disableLabel";
-			this.disableLabel.Size = new System.Drawing.Size(76, 22);
-			this.disableLabel.TabIndex = 15;
-			this.disableLabel.Text = "Disable";
 			// 
 			// enableBtn
 			// 
@@ -260,11 +243,45 @@ namespace RTAManager
 			this.secondBox.TabIndex = 22;
 			this.secondBox.TextChanged += new System.EventHandler(this.secondBox_TextChanged);
 			// 
+			// explainLabel
+			// 
+			this.explainLabel.AutoSize = true;
+			this.explainLabel.Font = new System.Drawing.Font("MS UI Gothic", 11F);
+			this.explainLabel.Location = new System.Drawing.Point(202, 145);
+			this.explainLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.explainLabel.Name = "explainLabel";
+			this.explainLabel.Size = new System.Drawing.Size(227, 15);
+			this.explainLabel.TabIndex = 24;
+			this.explainLabel.Text = "追加したいタグを左に移動してください";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(153, 85);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(96, 22);
+			this.label4.TabIndex = 25;
+			this.label4.Text = "追加済み";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(394, 85);
+			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(98, 22);
+			this.label5.TabIndex = 26;
+			this.label5.Text = "追加可能";
+			// 
 			// InputForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(528, 450);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.explainLabel);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.secondBox);
 			this.Controls.Add(this.label2);
@@ -273,8 +290,6 @@ namespace RTAManager
 			this.Controls.Add(this.hourBox);
 			this.Controls.Add(this.disableBtn);
 			this.Controls.Add(this.enableBtn);
-			this.Controls.Add(this.disableLabel);
-			this.Controls.Add(this.enableLabel);
 			this.Controls.Add(this.newTagLabel);
 			this.Controls.Add(this.newTagTextBox);
 			this.Controls.Add(this.AddTagBtn);
@@ -311,8 +326,6 @@ namespace RTAManager
 		private System.Windows.Forms.Button AddTagBtn;
 		private System.Windows.Forms.TextBox newTagTextBox;
 		private System.Windows.Forms.Label newTagLabel;
-		private System.Windows.Forms.Label enableLabel;
-		private System.Windows.Forms.Label disableLabel;
 		private System.Windows.Forms.Button enableBtn;
 		private System.Windows.Forms.Button disableBtn;
 		private System.Windows.Forms.TextBox hourBox;
@@ -321,5 +334,8 @@ namespace RTAManager
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox secondBox;
+		private System.Windows.Forms.Label explainLabel;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
 	}
 }

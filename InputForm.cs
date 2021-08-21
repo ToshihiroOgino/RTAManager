@@ -124,7 +124,7 @@ namespace RTAManager
 			if (!int.TryParse(minutsBox.Text, out min))
 				minutsBox.Text = null;
 			else
-				min = temp;
+				hour = temp;
 		}
 
 		private void minutsBox_TextChanged(object sender, EventArgs e)
@@ -157,6 +157,26 @@ namespace RTAManager
 				minutsBox.Text = null;
 				sec = temp;
 			}
+		}
+
+		private void NameTextBox_TextChanged(object sender, EventArgs e)
+		{
+			NameTextBox.Text = CheckString(NameTextBox.Text);
+		}
+
+		private void newTagTextBox_TextChanged(object sender, EventArgs e)
+		{
+			newTagTextBox.Text = CheckString(newTagTextBox.Text);
+		}
+
+		/// <summary>
+		/// jsonに使えない文字を消去する
+		/// </summary>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		private string CheckString(string str)
+		{
+			return str.Replace("\"", "").Replace(" ", "");
 		}
 	}
 }
